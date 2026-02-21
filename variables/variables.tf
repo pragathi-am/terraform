@@ -10,20 +10,18 @@ variable "instance_type" {
 
 variable "tag_vars" {
     type = map
-    default = { 
-        tags = {
+    default = {         
        Name = "terraform"
        Project = "roboshop"
        Terraform = true
-       Environment = "Dev"
-                }
-    }
+       Environment = "Dev"                
+              }
   }
 
-variable "sg_name" {
+ variable "sg_name" {
     type = string
-    default = "allow_all_terraform"
-}
+    default = "allow_all_terraform-default"
+} 
 
 variable "sg_desc" {
     type = string
@@ -48,11 +46,10 @@ variable "cidr_blocks" {
 variable "sg_tag_vars" {
     type = map
     default = { 
-       tags = {
        Name = "allow_all_terraform"
        Project = "roboshop"
        Terraform = true
        Environment = "Dev"
-             }
+             
     }
   }

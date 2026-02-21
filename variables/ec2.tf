@@ -7,7 +7,7 @@ resource "aws_instance" "example" {
 }
 
 resource "aws_security_group" "allow_tls" {
-  name        = var.sd_name
+  name        = var.sg_name
   description = var.sg_desc
 
   egress {
