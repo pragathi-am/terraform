@@ -4,7 +4,10 @@ resource "aws_instance" "example" {
   vpc_security_group_ids = [ aws_security_group.allow_tls.id ]
   instance_type = var.instance_type
 
-  tags = var.tag_vars
+    tags = {
+    Name = var.instances[count.index]
+    Project = "roboshop"
+  }
 }
 
 resource "aws_security_group" "allow_tls" {

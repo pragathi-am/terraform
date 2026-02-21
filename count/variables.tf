@@ -1,3 +1,8 @@
+variable "instances" {
+  type = list
+  default = ["mangodb" , "reddis", "mysql", "rabbitmq", "user"]
+}
+
 variable "ami_id" {
     type = string
     default = "ami-0220d79f3f480ecf5"
@@ -8,7 +13,7 @@ variable "instance_type" {
     default = "t3.micro"
 }
 
-variable "tag_vars" {
+/* variable "tag_vars" {
     type = map
     default = {         
        Name = "roboshop-test"
@@ -16,7 +21,7 @@ variable "tag_vars" {
        Terraform = true
        Environment = "Dev"                
               }
-  }
+  } */
 
  variable "sg_name" {
     type = string
@@ -53,3 +58,24 @@ variable "sg_tag_vars" {
              
     }
   }
+
+  variable "zone_id" {
+    type = string
+    default = "Z09372341GZ9MXQ0GTO4F"
+}
+
+  variable "domain_name" {
+    type = string
+    default = "daws88sraga.online"
+}
+
+
+variable "fruits_list" {
+    type = list(string)
+    default = ["mango", "apple", "banana", "apple", "gauva"]
+}
+
+variable "fruits_set" {
+    type = set(string)
+    default = ["mango", "apple", "banana", "apple", "gauva"]
+}
