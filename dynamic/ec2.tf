@@ -23,14 +23,14 @@ resource "aws_security_group" "allow_tls" {
   }
 
   dynamic "ingress" {
-    for_each = var.ingress_rules  # this takes as input from variables
+    for_each = toset(var.ingress_rules)   # this takes as input from variables
     content {
-    from_port        = ingress.value.port # here ingress is spl variable after dynamic keyword
-    to_port          = ingress.value.port
-    protocol         = "-1"
-    cidr_blocks      = ingress.value.cidr_blocks
-    ipv6_cidr_blocks = ["::/0"]
-    description = ingress.value.description
+      from_port        = ingress.value.port # here ingress is spl variable after dynamic keyword
+      to_port          = ingress.value.port
+      protocol         = "-1"
+      cidr_blocks      = ingress.value.cidr_blocks
+      ipv6_cidr_blocks = ["::/0"]
+      description = ingress.value.description
     }
   }
   
