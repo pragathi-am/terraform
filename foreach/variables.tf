@@ -1,4 +1,13 @@
+
+# this is for_each list to set convert and then use in for_each
 variable "instances" {
+  type = list
+  default = ["mangodb" , "reddis"]
+}
+
+
+# this is for each map example
+/* variable "instances" {
       type = map 
       default = {
             mongodb = "t3.micro"
@@ -6,7 +15,7 @@ variable "instances" {
             mysql   = "t3.small"
       }
 
-}
+} */
 
 variable "zone_id" {
     type = string
